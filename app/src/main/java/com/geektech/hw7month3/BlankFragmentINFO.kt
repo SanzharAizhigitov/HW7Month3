@@ -10,6 +10,7 @@ import com.geektech.hw7month3.databinding.ItemRickBinding
 
 class BlankFragmentINFO : Fragment() {
   lateinit var binding: FragmentBlankINFOBinding
+  lateinit var navArgs: BlankFragmentINFOArgs
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,10 +21,15 @@ class BlankFragmentINFO : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       var rick = arguments?.getSerializable("rick") as Rick
+        arguments?.let {
+            navArgs = BlankFragmentINFOArgs.fromBundle(it)
+        }
+       var rick = navArgs.rickCharacter
         binding.imgI.setImageResource(rick.img)
         binding.aliveORNotI.text = rick.aliveOrNot.toString()
         binding.nameI.text = rick.name.toString()
+
+
     }
 
 

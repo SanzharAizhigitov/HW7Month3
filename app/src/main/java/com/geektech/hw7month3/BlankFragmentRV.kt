@@ -30,7 +30,9 @@ lateinit var binding: FragmentBlankRVBinding
     }
 
     private fun onClick(position: Int) {
-        findNavController().navigate(R.id.blankFragmentINFO, bundleOf("rick" to list[position]))
+        findNavController().navigate(BlankFragmentRVDirections.actionBlankFragmentRVToBlankFragmentINFO(
+            list[position]
+        ))
     }
 
     private fun loadData() {
